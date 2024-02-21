@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans:wght@500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+.heading-secondary {
+  font-family: "Encode Sans", sans-serif;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(
+    to right,
+    $color-primary,
+    $color-primary-hover
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.2rem;
+  transform: all 0.2s;
+}
+
+.paragraph {
+  font-size: 1.6rem;
+  font-family: "Encode Sans", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.15px;
+  text-align: center;
+  margin-bottom: 2.2rem;
+}
+
+.u-text-center {
+  text-align: center !important;
+}
