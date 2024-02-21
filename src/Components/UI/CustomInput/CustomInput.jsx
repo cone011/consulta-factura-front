@@ -2,7 +2,17 @@ import { forwardRef } from "react";
 import { InputLabel, TextField } from "@mui/material";
 
 const CustomInput = forwardRef(function (
-  { showLabel, inputTitle, id, type, name, value, disable = false, ...props },
+  {
+    showLabel,
+    inputTitle,
+    id,
+    type,
+    name,
+    value,
+    fontSize = "2rem",
+    disable = false,
+    ...props
+  },
   ref
 ) {
   let component;
@@ -16,6 +26,11 @@ const CustomInput = forwardRef(function (
         value={value}
         inputRef={ref}
         {...props}
+        inputProps={{
+          sx: {
+            fontSize: fontSize,
+          },
+        }}
       />
     );
   }

@@ -1,0 +1,79 @@
+.body-factura {
+  position: relative;
+  width: 23cm;
+  height: 31.5cm;
+  margin: 0 auto;
+  color: #001028;
+  background: #ffffff;
+  font-size: 12px;
+  font-family: Arial;
+  border: 2px solid #5d6975;
+  padding: 3rem;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.logo img {
+  width: 90px;
+}
+
+.header-factura {
+  border-top: 1px solid #5d6975;
+  border-bottom: 1px solid #5d6975;
+  color: #5d6975;
+  font-size: 2.4em;
+  line-height: 1.4em;
+  font-weight: normal;
+  text-align: center;
+  margin: 0 0 20px 0;
+  background: url(../../../assets/dimension.png);
+}
+
+.company {
+  float: right;
+  text-align: right;
+}
+
+.project div,
+.company div,
+.cliente div {
+  white-space: nowrap;
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+  text-align: left;
+}
+
+.title-factura {
+  font-size: 2.4rem;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.subtitle-factura {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-right: 0.4rem;
+}
+
+.factura-container,
+.cliente-container {
+  border: 2px #5d6975 solid;
+  border-radius: 3px;
+  padding: 3rem;
+  margin-bottom: 2.4rem;
+}
+
+.link:link,
+.link:hover {
+  text-decoration: none;
+  color: #000000;
+}

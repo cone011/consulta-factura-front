@@ -1,32 +1,39 @@
 import { useRef, useState, useReducer } from "react";
 import { Box, IconButton, InputAdornment } from "@mui/material";
 import { componetReducer, initialComponent } from "../Reducer/componentReducer";
+import { consultarFactura } from "../../api/factura";
 import CustomInput from "../UI/CustomInput/CustomInput";
+import CloseIcon from "@mui/icons-material/Close";
 import SearchIcon from "@mui/icons-material/Search";
+import Loading from "../UI/Loading/Loading";
+import ErrorMessage from "../UI/ErrorMessage/ErrorMessage";
+import CustomButton from "../UI/CustomButton/CustomButton";
+import ImpresionFactura from "../UI/ImpresionFactura/ImpresionFactura";
 
 const Factura = () => {
   const cdcInputRef = useRef();
+  const facturaRef = useRef();
   const [datoFactura, setDatoFactura] = useState();
   const [state, dispatch] = useReducer(componetReducer, initialComponent);
 
-  const onSearchRucHandler = async (event) => {
+  const onSearchFacturaHandler = async (event) => {
     event.preventDefault();
     try {
       dispatch({
         type: "SHOW",
         typeComponent: "loading",
-        message: "Buscando Factura",
+        message: "Buscando Factura en SIFEN",
       });
 
-      setDatosRuc(null);
+      setDatoFactura(null);
 
       const enteredCdc = cdcInputRef.current.value;
 
-      // if (enteredRuc.length > 44) {
-      //   throw new Error("El ruc tiene un maximo de longitud de 8 caracteres");
-      // }
+      if (enteredCdc.length !== 44) {
+        throw new Error("El CDC debe contener 44 caracteres");
+      }
 
-      //const result = await consulta(enteredCdc);
+      const result = await consultarFactura(enteredCdc);
 
       setDatoFactura(result);
 
@@ -36,44 +43,63 @@ const Factura = () => {
     }
   };
   return (
-    <div className="compra">
-      <div className="compra__form">
-        <Box>
-          <div className="u-text-center">
-            <h2 className="compra__title">Buscador de ruc</h2>
-          </div>
-          <form onSubmit={onSearchRucHandler}>
-            <div>
-              <CustomInput
-                showLabel={true}
-                inputTitle="Busque su factura"
-                id="cdc"
-                type="text"
-                name="cdc"
-                margin="normal"
-                required
-                fullWidth
-                label="Busque su factura"
-                ref={cdcInputRef}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="start">
-                      <IconButton>
-                        <SearchIcon />
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-              />
+    <>
+      <div className="factura">
+        <div className="factura__form">
+          <Box>
+            <div className="u-text-center">
+              <h2 className="factura__title">
+                Buscador de Factura&nbsp;(SIFEN)
+              </h2>
+              <h3 className="paragraph">
+                Obs: Solo se ingresa el CDC de la factura
+              </h3>
             </div>
-
-            <div>
-              <button>Buscar</button>
-            </div>
-          </form>
-        </Box>
+            <form onSubmit={onSearchFacturaHandler}>
+              <div className="factura__form--container">
+                <CustomInput
+                  showLabel={false}
+                  inputTitle="Busque su factura"
+                  id="cdc"
+                  type="text"
+                  name="cdc"
+                  margin="normal"
+                  required
+                  fullWidth
+                  label="Busque su factura"
+                  ref={cdcInputRef}
+                  fontSize="1.5rem"
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="start">
+                        <IconButton
+                          onClick={() => (cdcInputRef.current.value = "")}
+                        >
+                          <CloseIcon />
+                        </IconButton>
+                        <IconButton onClick={onSearchFacturaHandler}>
+                          <SearchIcon />
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+                <CustomButton>Buscar</CustomButton>
+              </div>
+            </form>
+          </Box>
+          {state.isShow && state.typeComponent === "loading" && (
+            <Loading message={state.message} />
+          )}
+          {state.isShow && state.typeComponent === "error" && (
+            <ErrorMessage message={state.message} />
+          )}
+        </div>
       </div>
-    </div>
+      {datoFactura && (
+        <ImpresionFactura facturaObject={datoFactura} ref={facturaRef} />
+      )}s
+    </>
   );
 };
 
