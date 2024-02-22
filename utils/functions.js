@@ -1,15 +1,23 @@
+export const leftZero = (value, size) => {
+  let s = value + "";
+  while (s.length < size) s = "0" + s;
+  return s;
+};
+
 export const convertToFormatDate = (fecha) => {
-  const year = fecha.getFullYear();
+  const date = new Date(fecha);
 
-  const month = leftZero(fecha.getMonth() + 1, 2);
+  const year = date.getFullYear();
 
-  const day = leftZero(fecha.getDate(), 2);
+  const month = leftZero(date.getMonth() + 1, 2);
 
-  const hours = leftZero(fecha.getHours(), 2);
+  const day = leftZero(date.getDate(), 2);
 
-  const minutes = leftZero(fecha.getMinutes(), 2);
+  const hours = leftZero(date.getHours(), 2);
 
-  const seconds = leftZero(fecha.getSeconds(), 2);
+  const minutes = leftZero(date.getMinutes(), 2);
+
+  const seconds = leftZero(date.getSeconds(), 2);
 
   return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 };

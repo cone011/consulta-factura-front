@@ -1,7 +1,7 @@
 .body-factura {
   position: relative;
   width: 23cm;
-  height: 31.5cm;
+  height: 32cm;
   margin: 0 auto;
   color: #001028;
   background: #ffffff;
@@ -76,4 +76,117 @@
 .link:hover {
   text-decoration: none;
   color: #000000;
+}
+
+.table-factura {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: 2.4rem;
+}
+
+.table-factura thead {
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1;
+  border: 2px solid #000;
+  background-color: #f5f5f5;
+}
+.table-factura tbody {
+  border: 2px solid #000;
+}
+
+// .table-factura tr:nth-child((2n-1)) td {
+//   background: #f5f5f5;
+// }
+
+.table-factura th,
+.table-factura td {
+  text-align: center;
+}
+
+.table-factura th {
+  padding: 5px 20px;
+  color: #5d6975;
+  border-bottom: 2px solid #5d6975;
+  white-space: nowrap;
+  font-weight: normal;
+}
+
+.table-factura .service,
+.table-factura .desc {
+  text-align: left;
+  color: #000;
+}
+
+.table-factura thead th {
+  color: #000;
+}
+
+.table-factura td {
+  padding: 1rem;
+  text-align: right;
+  border-left: 1.5px solid #000;
+}
+
+.table-factura td.unit,
+.table-factura td.qty,
+.table-factura td.total {
+  font-size: 1.2em;
+}
+
+.border-detail {
+  border-bottom: 1px solid #5d6975;
+}
+
+.table-factura td.grand {
+  border-top: 1px solid #5d6975;
+}
+
+.margin-right {
+  margin-right: 1rem;
+}
+
+.separator {
+  border-left: 1.5px solid #000;
+}
+
+.footer-container {
+  border: 2px #5d6975 solid;
+  border-radius: 3px;
+  padding: 3rem;
+  margin-bottom: 2.4rem;
+  display: flex;
+}
+
+.container-qr {
+  margin-right: 4rem;
+}
+
+.qr {
+  height: auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+.leyenda-qr {
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 1.6rem;
+}
+
+.sub-leyenda-qr {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.right {
+  text-align: right;
+}
+
+.margin-left {
+  margin-left: 1rem;
 }
