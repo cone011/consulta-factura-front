@@ -7,6 +7,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
 import Loading from "../UI/Loading/Loading";
 import ErrorMessage from "../UI/ErrorMessage/ErrorMessage";
+import CustomButton from "../UI/CustomButton/CustomButton";
 
 const Ruc = () => {
   const rucInputRef = useRef();

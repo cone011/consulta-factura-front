@@ -49,7 +49,7 @@ const Factura = () => {
           <Box>
             <div className="u-text-center">
               <h2 className="factura__title">
-                Buscador de Factura&nbsp;(SIFEN)
+                Buscador de Factura Electronica&nbsp;(SIFEN)
               </h2>
               <h3 className="paragraph">
                 Obs: Solo se ingresa el CDC de la factura
@@ -98,7 +98,8 @@ const Factura = () => {
       </div>
       {datoFactura && (
         <ImpresionFactura facturaObject={datoFactura} ref={facturaRef} />
-      )}s
+      )}
+      s
     </>
   );
 };

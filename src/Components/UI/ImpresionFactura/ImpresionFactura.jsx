@@ -55,7 +55,7 @@ const ImpresionFactura = forwardRef(function ({ facturaObject }, ref) {
         </div>
 
         <div className="cliente-container">
-          <div className="cliente">
+          {/* <div className="cliente">
             <div>
               <span className="subtitle-factura">Fecha Emision:</span>
               <span>{convertToFormatDate(facturaObject.fechaEmision)}</span>
@@ -63,12 +63,12 @@ const ImpresionFactura = forwardRef(function ({ facturaObject }, ref) {
             <div>
               <span className="subtitle-factura">Condicion:</span>
               <span>{facturaObject.tipoOperacion.tipoOperacion}</span>
-              {/* {facturaObject.tipoOperacion.tipoOperacion === "CRÉDITO" && (
+              {facturaObject.tipoOperacion.tipoOperacion === "CRÉDITO" && (
                 <>
                   <span className="subtitle-factura margin-left">Plazo:</span>
                   <span>{set.rDE.DE.gDtipDE.gCamCond.gPagCred.dPlazoCre}</span>
                 </>
-              )} */}
+              )}
             </div>
 
             <div>
@@ -79,7 +79,7 @@ const ImpresionFactura = forwardRef(function ({ facturaObject }, ref) {
               <span className="subtitle-factura">Nombre/Razon Social:</span>
               <span>{set.rDE.DE.gDatGralOpe.gDatRec.dNomRec}</span>
             </div>
-          </div>
+          </div> */}
         </div>
       </header>
       {/* <main>
