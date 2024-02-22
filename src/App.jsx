@@ -1,9 +1,12 @@
 import "./Styles/main.scss";
-import Ruc from "./Components/Ruc/Ruc";
-import Factura from "./Components/Factura/Factura";
+import RoutersPages from "./Components/Routers/RoutersPages";
 
 function App() {
-  return <Factura />;
+  return (
+    <>
+      <RoutersPages />
+    </>
+  );
 }
 
 export default App;

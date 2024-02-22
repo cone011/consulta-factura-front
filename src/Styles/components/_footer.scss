@@ -1,0 +1,16 @@
+.footer {
+  background-color: $color-background;
+  font-family: "Encode Sans", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  height: 3.2rem;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index: 1;
+  color: $color-text;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

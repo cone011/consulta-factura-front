@@ -66,10 +66,12 @@ const ImpresionFactura = forwardRef(function ({ facturaObject }, ref) {
               <span>{facturaObject.tipoOperacion.tipoOperacion}</span>
             </div>
 
-            <div>
-              <span className="subtitle-factura">RUC:</span>
-              <span>{`${facturaObject.receptor.razonSocial}-${facturaObject.receptor.digitoVerificador}`}</span>
-            </div>
+            {facturaObject.receptor.ruc && (
+              <div>
+                <span className="subtitle-factura">RUC:</span>
+                <span>{`${facturaObject.receptor.ruc}-${facturaObject.receptor.digitoVerificador}`}</span>
+              </div>
+            )}
             <div>
               <span className="subtitle-factura">Nombre/Razon Social:</span>
               <span>{facturaObject.receptor.razonSocial}</span>

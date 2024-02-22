@@ -1,0 +1,47 @@
+.navbar {
+  background-color: $color-navbar;
+
+  &--close {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 0;
+  }
+
+  &--authenticated {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &--center {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.side-navbar {
+  margin-left: 0;
+  position: fixed;
+}
+
+.imgLogo {
+  height: 34px;
+  width: 132px;
+}
+
+.row-navbar {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.btn--link {
+  text-decoration: none;
+  color: inherit;
+  background-color: transparent;
+
+  &:hover,
+  &:active {
+    background-color: transparent;
+  }
+}
