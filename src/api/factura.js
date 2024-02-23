@@ -1,6 +1,6 @@
 export async function consultarFactura(cdc) {
   const result = await fetch(
-    `http://localhost:8070/api/factura/consultar/${cdc}`
+    `${import.meta.env.VITE_LINK}/api/factura/consultar/${cdc}`
   );
 
   const data = await result.json();

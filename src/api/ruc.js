@@ -1,5 +1,5 @@
 export async function consultarRuc(ruc) {
-  const result = await fetch(`http://localhost:8070/api/ruc?ruc=${ruc}`);
+  const result = await fetch(`${import.meta.env.VITE_LINK}/api/ruc?ruc=${ruc}`);
 
   const data = await result.json();
 
