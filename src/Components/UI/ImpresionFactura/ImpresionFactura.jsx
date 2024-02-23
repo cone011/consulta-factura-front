@@ -3,8 +3,6 @@ import { convertToFormatDate, toPoint } from "../../../../utils/functions";
 import QRCode from "react-qr-code";
 
 const ImpresionFactura = forwardRef(function ({ facturaObject }, ref) {
-  console.log(facturaObject);
-
   const factura = `${facturaObject.timbrado.establecimiento}-${facturaObject.timbrado.puntoExpedicion}-${facturaObject.timbrado.numeroDocumento}`;
 
   return (
