@@ -63,7 +63,7 @@ const Ruc = () => {
                   margin="normal"
                   required
                   fullWidth
-                  label="Buscar Ruc"
+                  label="Buscar Ruc Ej: 4191912"
                   ref={rucInputRef}
                   InputProps={{
                     endAdornment: (

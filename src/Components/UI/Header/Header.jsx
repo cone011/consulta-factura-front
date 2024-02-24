@@ -73,7 +73,7 @@ const Header = () => {
                   onClick={closeDrawer}
                 >
                   <ListItemIcon>
-                    <KeyboardArrowLeftIcon />
+                    <KeyboardArrowLeftIcon sx={{ fontSize: "3rem" }} />
                   </ListItemIcon>
                 </ListItem>
               </List>
@@ -83,14 +83,17 @@ const Header = () => {
               <List>
                 <ListItem key="Ruc">
                   <ListItemIcon>
-                    <HomeIcon />
+                    <HomeIcon sx={{ fontSize: "2.4rem" }} />
                   </ListItemIcon>
                   <Link
                     to="/consulta/ruc"
                     className="btn--link"
                     onClick={closeDrawer}
                   >
-                    <ListItemText primary="Ruc" />
+                    <ListItemText
+                      primaryTypographyProps={{ fontSize: "2rem" }}
+                      primary="Ruc"
+                    />
                   </Link>
                 </ListItem>
               </List>
@@ -98,14 +101,17 @@ const Header = () => {
               <List>
                 <ListItem key="Factura">
                   <ListItemIcon>
-                    <StarIcon />
+                    <StarIcon sx={{ fontSize: "2.4rem" }} />
                   </ListItemIcon>
                   <Link
                     to="/consulta/factura"
                     className="btn--link"
                     onClick={closeDrawer}
                   >
-                    <ListItemText primary="Factura" />
+                    <ListItemText
+                      primaryTypographyProps={{ fontSize: "2rem" }}
+                      primary="Factura"
+                    />
                   </Link>
                 </ListItem>
               </List>
