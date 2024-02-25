@@ -2,19 +2,33 @@ import { useRef, useState, useReducer } from "react";
 import { Box, IconButton, InputAdornment } from "@mui/material";
 import { componetReducer, initialComponent } from "../Reducer/componentReducer";
 import { consultarFactura } from "../../api/factura";
+import { useReactToPrint } from "react-to-print";
 import CustomInput from "../UI/CustomInput/CustomInput";
 import CloseIcon from "@mui/icons-material/Close";
 import SearchIcon from "@mui/icons-material/Search";
-import Loading from "../UI/Loading/Loading";
-import ErrorMessage from "../UI/ErrorMessage/ErrorMessage";
 import CustomButton from "../UI/CustomButton/CustomButton";
 import ImpresionFactura from "../UI/ImpresionFactura/ImpresionFactura";
+import useWindowsDimension from "../../hook/useWindowsDimension";
+import ShowComponent from "../UI/ShowComponent/ShowComponent";
 
 const Factura = () => {
   const cdcInputRef = useRef();
   const facturaRef = useRef();
   const [datoFactura, setDatoFactura] = useState();
   const [state, dispatch] = useReducer(componetReducer, initialComponent);
+  const dimension = useWindowsDimension();
+
+  const handlePrint = useReactToPrint({
+    content: () => facturaRef.current,
+    documentTitle: "Visitor Pass",
+    onAfterPrint: () => console.log("Printed PDF successfully!"),
+  });
+
+  let printComponet = (
+    <CustomButton type="button" onClick={handlePrint}>
+      Descargar PDF
+    </CustomButton>
+  );
 
   const onSearchFacturaHandler = async (event) => {
     event.preventDefault();
@@ -42,6 +56,7 @@ const Factura = () => {
       dispatch({ type: "SHOW", typeComponent: "error", message: err.message });
     }
   };
+
   return (
     <>
       <div className="factura">
@@ -88,18 +103,32 @@ const Factura = () => {
               </div>
             </form>
           </Box>
-          {state.isShow && state.typeComponent === "loading" && (
-            <Loading message={state.message} />
-          )}
-          {state.isShow && state.typeComponent === "error" && (
-            <ErrorMessage message={state.message} />
+          {state.isShow && (
+            <ShowComponent
+              typeComponent={state.typeComponent}
+              message={state.message}
+            />
           )}
         </div>
       </div>
       {datoFactura && (
-        <ImpresionFactura facturaObject={datoFactura} ref={facturaRef} />
+        <>
+          {printComponet}
+          <ImpresionFactura facturaObject={datoFactura} ref={facturaRef} />
+        </>
       )}
-      s
+      {dimension.width <= 768 && (
+        <div className="factura-response">
+          <div className="factura-response__form">
+            <div className="u-text-center">
+              <h2 className="heading-secondary u-margin-bottom-small">
+                La factura fue generada
+              </h2>
+            </div>
+            {printComponet}
+          </div>
+        </div>
+      )}
     </>
   );
 };

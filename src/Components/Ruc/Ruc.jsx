@@ -8,6 +8,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import Loading from "../UI/Loading/Loading";
 import ErrorMessage from "../UI/ErrorMessage/ErrorMessage";
 import CustomButton from "../UI/CustomButton/CustomButton";
+import ShowComponent from "../UI/ShowComponent/ShowComponent";
 
 const Ruc = () => {
   const rucInputRef = useRef();
@@ -84,11 +85,11 @@ const Ruc = () => {
               </div>
             </form>
           </Box>
-          {state.isShow && state.typeComponent === "loading" && (
-            <Loading message={state.message} />
-          )}
-          {state.isShow && state.typeComponent === "error" && (
-            <ErrorMessage message={state.message} />
+          {state.isShow && (
+            <ShowComponent
+              typeComponent={state.typeComponent}
+              message={state.message}
+            />
           )}
           {datosRuc && (
             <div className="u-text-center">

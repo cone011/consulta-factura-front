@@ -3,6 +3,7 @@ import Ruc from "../Ruc/Ruc";
 import Factura from "../Factura/Factura";
 import Root from "../../Page/Root";
 import Error from "../../Page/Error";
+import Contactos from "../Contactos/Contactos";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
           { path: "factura", element: <Factura /> },
         ],
       },
+      { path: "contacto", element: <Contactos /> },
     ],
   },
 ]);
