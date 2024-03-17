@@ -27,7 +27,6 @@ html {
 
 body {
   box-sizing: border-box;
-  padding: 3rem;
   background-color: #030723;
 
   @include respond(tab-port) {

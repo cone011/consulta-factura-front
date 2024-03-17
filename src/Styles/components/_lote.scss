@@ -1,0 +1,74 @@
+.lote {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.6rem;
+
+  &_resultado {
+    @extend .lote;
+    flex-direction: column;
+
+    &-container {
+      padding: 3.2rem;
+      border-radius: 4px;
+      border: 1px solid #e6e5e8;
+      background-color: #fff;
+      min-width: 70rem;
+    }
+  }
+
+  @include respond(phone) {
+    margin-top: 15rem;
+  }
+
+  &__form {
+    width: 70rem;
+    padding: 3.2rem;
+    border-radius: 4px;
+    border: 1px solid $color-border;
+    background-color: $color-white;
+
+    &--container {
+      display: flex;
+      justify-content: space-between;
+      gap: 1.6rem;
+      margin-bottom: 3.2rem;
+
+      @include respond(phone) {
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__title {
+    font-family: "Encode Sans", sans-serif;
+    font-weight: 500;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.15px;
+    text-align: center;
+    margin-bottom: 2.2rem;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid $color-primary;
+    margin-bottom: 1.5rem;
+
+    &-btn {
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 10rem;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      padding: 0.8rem 1.2rem;
+      background-color: $color-white;
+    }
+
+    &-icon {
+      font-family: 3rem;
+    }
+  }
+}

@@ -42,6 +42,37 @@ const Factura = () => {
       dispatch({ type: "SHOW", typeComponent: "error", message: err.message });
     }
   };
+
+  const handlePrint = useReactToPrint({
+    content: () => facturaRef.current,
+    documentTitle: "Visitor Pass",
+    onAfterPrint: () => console.log("Printed PDF successfully!"),
+  });
+
+  const onNavigateToSet = async () => {
+    try {
+      window.open(datoFactura.qr);
+    } catch (err) {
+      dispatch({ type: "SHOW", typeComponent: "error", message: err.message });
+    }
+  };
+
+  let printComponet = (
+    <div className="factura_button">
+      <CustomButton type="button" onClick={handlePrint}>
+        Descargar PDF
+      </CustomButton>
+      <CustomButton
+        type="button"
+        onClick={() => {
+          onNavigateToSet(cdcInputRef.current.value);
+        }}
+      >
+        SET
+      </CustomButton>
+    </div>
+  );
+
   return (
     <>
       <div className="factura">
@@ -97,9 +128,15 @@ const Factura = () => {
         </div>
       </div>
       {datoFactura && (
-        <ImpresionFactura facturaObject={datoFactura} ref={facturaRef} />
+        <>
+          <div className="factura">
+            <div className="factura_result">
+              {printComponet}
+              <ImpresionFactura facturaObject={datoFactura} ref={facturaRef} />
+            </div>
+          </div>
+        </>
       )}
-      s
     </>
   );
 };

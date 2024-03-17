@@ -3,6 +3,7 @@ import Ruc from "../Ruc/Ruc";
 import Factura from "../Factura/Factura";
 import Root from "../../Page/Root";
 import Error from "../../Page/Error";
+import Lote from "../Lote/Lote";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
         children: [
           { path: "ruc", element: <Ruc /> },
           { path: "factura", element: <Factura /> },
+          { path: "lote", element: <Lote /> },
         ],
       },
     ],
