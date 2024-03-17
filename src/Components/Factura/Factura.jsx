@@ -2,6 +2,7 @@ import { useRef, useState, useReducer } from "react";
 import { Box, IconButton, InputAdornment } from "@mui/material";
 import { componetReducer, initialComponent } from "../Reducer/componentReducer";
 import { consultarFactura } from "../../api/factura";
+import { useReactToPrint } from "react-to-print";
 import CustomInput from "../UI/CustomInput/CustomInput";
 import CloseIcon from "@mui/icons-material/Close";
 import SearchIcon from "@mui/icons-material/Search";

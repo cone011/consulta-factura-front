@@ -1,12 +1,8 @@
-.ruc {
+.contacto {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   padding: 1.6rem;
-
-  @include respond(phone) {
-    margin-top: 15rem;
-  }
 
   &__form {
     width: 70rem;
@@ -15,22 +11,18 @@
     border: 1px solid $color-border;
     background-color: $color-white;
 
-    &--container {
-      display: flex;
-      justify-content: space-between;
-      gap: 1.6rem;
-      margin-bottom: 3.2rem;
-
-      @include respond(phone) {
-        flex-direction: column;
-      }
-    }
+    //   &--container {
+    //     display: flex;
+    //     justify-content: space-between;
+    //     gap: 1.6rem;
+    //     margin-bottom: 3.2rem;
+    //   }
   }
 
   &__title {
     font-family: "Encode Sans", sans-serif;
     font-weight: 500;
-    font-size: 2.5rem;
+    font-size: 2rem;
     line-height: 2.5rem;
     letter-spacing: 0.15px;
     text-align: center;
