@@ -16,6 +16,7 @@ import ReorderIcon from "@mui/icons-material/Reorder";
 import StarIcon from "@mui/icons-material/Star";
 import HomeIcon from "@mui/icons-material/Home";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
+import AccountTreeIcon from "@mui/icons-material/AccountTree";
 
 const Header = () => {
   const [isDrawerOpened, setIsDrawerOpen] = useState(false);
@@ -48,7 +49,9 @@ const Header = () => {
             >
               <div className="side-bar">
                 <IconButton onClick={toggleDrawerStatus}>
-                  {!isDrawerOpened ? <ReorderIcon color="info" /> : null}
+                  {!isDrawerOpened ? (
+                    <ReorderIcon sx={{ fontSize: "3rem" }} color="info" />
+                  ) : null}
                 </IconButton>
               </div>
             </div>
@@ -81,9 +84,20 @@ const Header = () => {
               <Divider />
 
               <List>
-                <ListItem key="Ruc">
+                <ListItem key="Inicio">
                   <ListItemIcon>
                     <HomeIcon sx={{ fontSize: "2.4rem" }} />
+                  </ListItemIcon>
+                  <Link to="/" className="btn--link" onClick={closeDrawer}>
+                    <ListItemText
+                      primaryTypographyProps={{ fontSize: "2rem" }}
+                      primary="Inicio"
+                    />
+                  </Link>
+                </ListItem>
+                <ListItem key="Ruc">
+                  <ListItemIcon>
+                    <AccountTreeIcon sx={{ fontSize: "2.4rem" }} />
                   </ListItemIcon>
                   <Link
                     to="/consulta/ruc"
@@ -96,9 +110,7 @@ const Header = () => {
                     />
                   </Link>
                 </ListItem>
-              </List>
 
-              <List>
                 <ListItem key="Factura">
                   <ListItemIcon>
                     <StarIcon sx={{ fontSize: "2.4rem" }} />
@@ -111,6 +123,22 @@ const Header = () => {
                     <ListItemText
                       primaryTypographyProps={{ fontSize: "2rem" }}
                       primary="Factura"
+                    />
+                  </Link>
+                </ListItem>
+
+                <ListItem key="Lote">
+                  <ListItemIcon>
+                    <StarIcon sx={{ fontSize: "2.4rem" }} />
+                  </ListItemIcon>
+                  <Link
+                    to="/consulta/lote"
+                    className="btn--link"
+                    onClick={closeDrawer}
+                  >
+                    <ListItemText
+                      primaryTypographyProps={{ fontSize: "2rem" }}
+                      primary="Lote"
                     />
                   </Link>
                 </ListItem>

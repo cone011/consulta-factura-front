@@ -4,6 +4,7 @@ import Factura from "../Factura/Factura";
 import Root from "../../Page/Root";
 import Error from "../../Page/Error";
 import Lote from "../Lote/Lote";
+import LandingPage from "../LandingPage/LandingPage";
 
 const router = createBrowserRouter([
   {
@@ -12,7 +13,7 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     id: "root",
     children: [
-      { index: true, element: <Ruc /> },
+      { index: true, element: <LandingPage /> },
       {
         path: "consulta",
         children: [

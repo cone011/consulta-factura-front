@@ -2,9 +2,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
-.heading-secondary {
+.heading {
   font-family: "Encode Sans", sans-serif;
-  font-size: 2.5rem;
   text-transform: uppercase;
   font-weight: 700;
   display: inline-block;
@@ -17,6 +16,16 @@
   color: transparent;
   letter-spacing: 0.2rem;
   transform: all 0.2s;
+}
+
+.heading-primary {
+  @extend .heading;
+  font-size: 3.5rem;
+}
+
+.heading-secondary {
+  @extend .heading;
+  font-size: 2.5rem;
 }
 
 .paragraph {
