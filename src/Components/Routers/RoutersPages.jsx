@@ -5,6 +5,7 @@ import Root from "../../Page/Root";
 import Error from "../../Page/Error";
 import Lote from "../Lote/Lote";
 import LandingPage from "../LandingPage/LandingPage";
+import Contactos from "../Contactos/Contactos";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
           { path: "lote", element: <Lote /> },
         ],
       },
+      { path: "contacto", element: <Contactos /> },
     ],
   },
 ]);

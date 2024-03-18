@@ -1,31 +1,30 @@
 .contacto {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   padding: 1.6rem;
+  margin-top: 12rem;
 
-  &__form {
-    width: 70rem;
+  @include respond(phone) {
+    margin-top: 15rem;
+  }
+
+  &_form {
+    width: 60vw;
     padding: 3.2rem;
     border-radius: 4px;
     border: 1px solid $color-border;
     background-color: $color-white;
 
-    //   &--container {
-    //     display: flex;
-    //     justify-content: space-between;
-    //     gap: 1.6rem;
-    //     margin-bottom: 3.2rem;
-    //   }
-  }
+    &-contacts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
 
-  &__title {
-    font-family: "Encode Sans", sans-serif;
-    font-weight: 500;
-    font-size: 2rem;
-    line-height: 2.5rem;
-    letter-spacing: 0.15px;
-    text-align: center;
-    margin-bottom: 2.2rem;
+    &-btn {
+      display: flex;
+      justify-content: flex-end;
+    }
   }
 }
