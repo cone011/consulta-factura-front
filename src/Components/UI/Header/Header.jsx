@@ -17,6 +17,7 @@ import StarIcon from "@mui/icons-material/Star";
 import HomeIcon from "@mui/icons-material/Home";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import AccountTreeIcon from "@mui/icons-material/AccountTree";
+import PersonIcon from "@mui/icons-material/Person";
 
 const Header = () => {
   const [isDrawerOpened, setIsDrawerOpen] = useState(false);
@@ -139,6 +140,22 @@ const Header = () => {
                     <ListItemText
                       primaryTypographyProps={{ fontSize: "2rem" }}
                       primary="Lote"
+                    />
+                  </Link>
+                </ListItem>
+
+                <ListItem key="Lote">
+                  <ListItemIcon>
+                    <PersonIcon sx={{ fontSize: "2.4rem" }} />
+                  </ListItemIcon>
+                  <Link
+                    to="/contacto"
+                    className="btn--link"
+                    onClick={closeDrawer}
+                  >
+                    <ListItemText
+                      primaryTypographyProps={{ fontSize: "2rem" }}
+                      primary="Contacto"
                     />
                   </Link>
                 </ListItem>
