@@ -4,7 +4,7 @@ export async function consultarRuc(ruc) {
   const data = await result.json();
 
   if (!result.ok) {
-    throw Error(Array.isArray(data) ? data[0].msg : data.message);
+    throw Error(Array.isArray(data.data) ? data.data[0].msg : data.message);
   }
 
   return data.dataRuc;
