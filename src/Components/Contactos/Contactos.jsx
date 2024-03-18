@@ -73,7 +73,7 @@ const Contactos = () => {
           <form onSubmit={onSubmitContactoHandler}>
             <div className="u-text-center">
               <h2 className="factura__title">
-                Buscador de Factura Electronica&nbsp;(SIFEN)
+                Quiero conocer mas, contactenos aqui!
               </h2>
             </div>
             <label htmlFor="nombre" className="label">
@@ -106,7 +106,7 @@ const Contactos = () => {
                   margin="normal"
                   required
                   fullWidth
-                  label="Telefono"
+                  label="09XX XXX XXX"
                   ref={telefonoInputRef}
                   fontSize="1.5rem"
                 />
@@ -122,7 +122,6 @@ const Contactos = () => {
                   type="email"
                   name="correo"
                   margin="normal"
-                  required
                   fullWidth
                   label="Correo"
                   ref={emailInputRef}
@@ -140,7 +139,6 @@ const Contactos = () => {
               type="text"
               name="mensaje"
               margin="normal"
-              required
               fullWidth
               label="Mensaje"
               ref={mensajeInputRef}
