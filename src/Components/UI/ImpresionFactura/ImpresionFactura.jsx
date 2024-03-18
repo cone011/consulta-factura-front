@@ -207,7 +207,7 @@ const ImpresionFactura = forwardRef(function ({ facturaObject }, ref) {
             </blockquote>
             <p className="leyenda-qr">{`CDC: ${facturaObject.CDC}`}</p>
             <h3 className="leyenda-documento">
-              ESTE UNA COPIA DEL DOCUMENTO ELECTRÓNICO(XML)
+              ESTE ES UNA COPIA DEL DOCUMENTO ELECTRÓNICO(XML)
             </h3>
             <p className="sub-leyenda-qr">
               Informacion de interes para saber los datos de la factura
