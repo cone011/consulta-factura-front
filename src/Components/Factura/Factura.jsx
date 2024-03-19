@@ -2,22 +2,18 @@ import { useRef, useState, useReducer } from "react";
 import { Box, IconButton, InputAdornment } from "@mui/material";
 import { componetReducer, initialComponent } from "../Reducer/componentReducer";
 import { consultarFactura } from "../../api/factura";
-import { useReactToPrint } from "react-to-print";
 import CustomInput from "../UI/CustomInput/CustomInput";
 import CloseIcon from "@mui/icons-material/Close";
 import SearchIcon from "@mui/icons-material/Search";
 import Loading from "../UI/Loading/Loading";
 import ErrorMessage from "../UI/ErrorMessage/ErrorMessage";
 import CustomButton from "../UI/CustomButton/CustomButton";
-import ImpresionFactura from "../UI/ImpresionFactura/ImpresionFactura";
-import useWindowsDimension from "../../hook/useWindowsDimension";
+import FacturaResult from "../UI/FacturaResult/FacturaResult";
 
 const Factura = () => {
   const cdcInputRef = useRef();
-  const facturaRef = useRef();
   const [datoFactura, setDatoFactura] = useState();
   const [state, dispatch] = useReducer(componetReducer, initialComponent);
-  const dimensions = useWindowsDimension();
 
   const onSearchFacturaHandler = async (event) => {
     event.preventDefault();
@@ -45,35 +41,6 @@ const Factura = () => {
       dispatch({ type: "SHOW", typeComponent: "error", message: err.message });
     }
   };
-
-  const handlePrint = useReactToPrint({
-    content: () => facturaRef.current,
-    documentTitle: `Factura ${datoFactura?.CDC}`,
-  });
-
-  const onNavigateToSet = async () => {
-    try {
-      window.open(datoFactura.qr);
-    } catch (err) {
-      dispatch({ type: "SHOW", typeComponent: "error", message: err.message });
-    }
-  };
-
-  let printComponet = (
-    <div className="factura_button">
-      <CustomButton type="button" onClick={handlePrint}>
-        Descargar PDF
-      </CustomButton>
-      <CustomButton
-        type="button"
-        onClick={() => {
-          onNavigateToSet(cdcInputRef.current.value);
-        }}
-      >
-        SET
-      </CustomButton>
-    </div>
-  );
 
   return (
     <>
@@ -129,16 +96,7 @@ const Factura = () => {
           )}
         </div>
       </div>
-      {datoFactura && (
-        <>
-          <div className="factura">
-            <div className="factura_result">
-              {printComponet}
-              <ImpresionFactura facturaObject={datoFactura} ref={facturaRef} />
-            </div>
-          </div>
-        </>
-      )}
+      {datoFactura && <FacturaResult facturaObject={datoFactura} />}
     </>
   );
 };

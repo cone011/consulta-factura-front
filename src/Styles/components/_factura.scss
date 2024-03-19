@@ -50,5 +50,9 @@
     justify-content: end;
     gap: 2rem;
     margin-bottom: 2rem;
+
+    @include respond(phone) {
+      flex-direction: column;
+    }
   }
 }
