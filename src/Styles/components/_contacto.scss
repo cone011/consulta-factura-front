@@ -6,7 +6,7 @@
   margin-top: 12rem;
 
   @include respond(phone) {
-    margin-top: 15rem;
+    margin: 0;
   }
 
   &_form {
@@ -16,10 +16,18 @@
     border: 1px solid $color-border;
     background-color: $color-white;
 
+    @include respond(phone) {
+      width: 80vw;
+    }
+
     &-contacts {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
+
+      @include respond(phone) {
+        grid-template-columns: 1fr;
+      }
     }
 
     &-btn {

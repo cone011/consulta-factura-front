@@ -10,12 +10,14 @@ import Loading from "../UI/Loading/Loading";
 import ErrorMessage from "../UI/ErrorMessage/ErrorMessage";
 import CustomButton from "../UI/CustomButton/CustomButton";
 import ImpresionFactura from "../UI/ImpresionFactura/ImpresionFactura";
+import useWindowsDimension from "../../hook/useWindowsDimension";
 
 const Factura = () => {
   const cdcInputRef = useRef();
   const facturaRef = useRef();
   const [datoFactura, setDatoFactura] = useState();
   const [state, dispatch] = useReducer(componetReducer, initialComponent);
+  const dimensions = useWindowsDimension();
 
   const onSearchFacturaHandler = async (event) => {
     event.preventDefault();

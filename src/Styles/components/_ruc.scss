@@ -5,10 +5,6 @@
   padding: 1.6rem;
   margin-top: 12rem;
 
-  @include respond(phone) {
-    margin-top: 15rem;
-  }
-
   &__form {
     width: 70rem;
     padding: 3.2rem;

@@ -10,10 +10,12 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import useWindowsDimension from "../../../hook/useWindowsDimension";
 
 const ListaRuc = ({ listaRuc }) => {
   const [rowPerPage, setRowsPerPage] = useState(7);
   const [page, setPage] = useState(0);
+  const dimensions = useWindowsDimension();
 
   const RUC_HEAD = [
     {
@@ -73,10 +75,10 @@ const ListaRuc = ({ listaRuc }) => {
                       tabIndex={-1}
                       sx={{ cursor: "pointer", overflow: "hidden" }}
                     >
-                      <TableCell width={150}>
+                      <TableCell width={dimensions.width <= 375 ? 50 : 150}>
                         <p className="grid-text">{item.ruc}</p>
                       </TableCell>
-                      <TableCell width={300}>
+                      <TableCell width={dimensions.width <= 375 ? 200 : 300}>
                         <p className="grid-text">{item.nombre}</p>
                       </TableCell>
                     </TableRow>
