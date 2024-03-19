@@ -1,9 +1,4 @@
 export async function insertContacto({ nombre, telefono, email, mensaje }) {
-  console.log(nombre);
-  console.log(telefono);
-  console.log(email);
-  console.log(mensaje);
-
   const result = await fetch(`${import.meta.env.VITE_LINK}/api/contacto`, {
     method: "POST",
     headers: {

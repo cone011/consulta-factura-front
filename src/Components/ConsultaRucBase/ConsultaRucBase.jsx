@@ -1,16 +1,17 @@
 import { useReducer, useRef, useState } from "react";
-import { Box, IconButton, InputAdornment } from "@mui/material";
-import { consultarRuc } from "../../api/ruc";
 import { componetReducer, initialComponent } from "../Reducer/componentReducer";
+import { consultarRucBase } from "../../api/ruc";
+import { Box, IconButton, InputAdornment } from "@mui/material";
+import ShowComponent from "../UI/ShowComponent/ShowComponent";
+import ListaRuc from "../UI/Tabla/ListaRuc";
 import CustomInput from "../UI/CustomInput/CustomInput";
+import CustomButton from "../UI/CustomButton/CustomButton";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
-import CustomButton from "../UI/CustomButton/CustomButton";
-import ShowComponent from "../UI/ShowComponent/ShowComponent";
 
-const Ruc = () => {
+const ConsultaRucBase = () => {
   const rucInputRef = useRef();
-  const [datosRuc, setDatosRuc] = useState();
+  const [listRuc, setListRuc] = useState([]);
   const [state, dispatch] = useReducer(componetReducer, initialComponent);
 
   const onSearchRucHandler = async (event) => {
@@ -22,17 +23,17 @@ const Ruc = () => {
         message: "Buscando Ruc",
       });
 
-      setDatosRuc(null);
+      setListRuc(null);
 
       const enteredRuc = rucInputRef.current.value;
 
-      if (enteredRuc.length > 9) {
-        throw new Error("El ruc tiene un maximo de longitud de 8 caracteres");
+      if (enteredRuc.length < 4) {
+        throw new Error("El ruc a buscar debe tener mas de 4 de largo");
       }
 
-      const result = await consultarRuc(enteredRuc);
+      const result = await consultarRucBase(enteredRuc);
 
-      setDatosRuc(result);
+      setListRuc(result);
 
       dispatch({ type: "CLOSE" });
     } catch (err) {
@@ -42,17 +43,16 @@ const Ruc = () => {
 
   return (
     <>
-      <div className="ruc">
-        <div className="ruc__form">
+      <div className="consultaRuc">
+        <div className="consultaRuc__form">
           <Box>
             <div className="u-text-center">
-              <h2 className="ruc__title">Buscador de ruc&nbsp;(SIFEN)</h2>
-              <h3 className="paragraph">
-                Obs: Solo se ingresa el ruc sin el digito verificador
-              </h3>
+              <h2 className="consultaRuc__title">
+                Buscador de ruc&nbsp;(LOCAL)
+              </h2>
             </div>
             <form onSubmit={onSearchRucHandler}>
-              <div className="ruc__form--container">
+              <div className="consultaRuc__form--container">
                 <CustomInput
                   showLabel={false}
                   inputTitle="Ruc"
@@ -89,19 +89,18 @@ const Ruc = () => {
               message={state.message}
             />
           )}
-          {datosRuc && (
-            <div className="u-text-center">
-              <h2 className="heading-secondary u-margin-bottom-small">
-                Ruc encontrado
-              </h2>
-              <p className="paragraph">{`RUC: ${datosRuc.ruc} - ${datosRuc.nombre}`}</p>
-              <p className="paragraph">{`Estado: ${datosRuc.estado}`}</p>
-            </div>
-          )}
         </div>
       </div>
+
+      {!state.isShow && listRuc.length > 0 && (
+        <div className="consultaRuc">
+          <div className="consultaRuc_result">
+            <ListaRuc listaRuc={listRuc} />
+          </div>
+        </div>
+      )}
     </>
   );
 };
 
-export default Ruc;
+export default ConsultaRucBase;

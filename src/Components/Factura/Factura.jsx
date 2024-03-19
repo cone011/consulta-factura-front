@@ -46,8 +46,7 @@ const Factura = () => {
 
   const handlePrint = useReactToPrint({
     content: () => facturaRef.current,
-    documentTitle: "Visitor Pass",
-    onAfterPrint: () => console.log("Printed PDF successfully!"),
+    documentTitle: `Factura ${datoFactura?.CDC}`,
   });
 
   const onNavigateToSet = async () => {

@@ -1,9 +1,8 @@
-.ruc {
+.consultaRuc {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1.6rem;
-  margin-top: 12rem;
 
   @include respond(phone) {
     margin-top: 15rem;
@@ -43,5 +42,6 @@
     border-radius: 4px;
     border: 1px solid #e6e5e8;
     background-color: #fff;
+    width: 70rem;
   }
 }

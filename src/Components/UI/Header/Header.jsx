@@ -96,7 +96,8 @@ const Header = () => {
                     />
                   </Link>
                 </ListItem>
-                <ListItem key="Ruc">
+
+                <ListItem key="RucSifen">
                   <ListItemIcon>
                     <AccountTreeIcon sx={{ fontSize: "2.4rem" }} />
                   </ListItemIcon>
@@ -107,7 +108,23 @@ const Header = () => {
                   >
                     <ListItemText
                       primaryTypographyProps={{ fontSize: "2rem" }}
-                      primary="Ruc"
+                      primary="Ruc (SIFEN)"
+                    />
+                  </Link>
+                </ListItem>
+
+                <ListItem key="RucBase">
+                  <ListItemIcon>
+                    <AccountTreeIcon sx={{ fontSize: "2.4rem" }} />
+                  </ListItemIcon>
+                  <Link
+                    to="/consulta/ruc/base"
+                    className="btn--link"
+                    onClick={closeDrawer}
+                  >
+                    <ListItemText
+                      primaryTypographyProps={{ fontSize: "2rem" }}
+                      primary="Ruc (LOCAL)"
                     />
                   </Link>
                 </ListItem>

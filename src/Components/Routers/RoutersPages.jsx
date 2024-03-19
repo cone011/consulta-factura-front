@@ -6,6 +6,7 @@ import Error from "../../Page/Error";
 import Lote from "../Lote/Lote";
 import LandingPage from "../LandingPage/LandingPage";
 import Contactos from "../Contactos/Contactos";
+import ConsultaRucBase from "../ConsultaRucBase/ConsultaRucBase";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,13 @@ const router = createBrowserRouter([
       {
         path: "consulta",
         children: [
-          { path: "ruc", element: <Ruc /> },
+          {
+            path: "ruc",
+            children: [
+              { index: true, element: <Ruc /> },
+              { path: "base", element: <ConsultaRucBase /> },
+            ],
+          },
           { path: "factura", element: <Factura /> },
           { path: "lote", element: <Lote /> },
         ],
