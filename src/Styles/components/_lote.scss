@@ -4,6 +4,10 @@
   align-items: center;
   padding: 1.6rem;
 
+  @include respond(phone) {
+    margin-top: 5rem;
+  }
+
   &_resultado {
     @extend .lote;
     flex-direction: column;
@@ -14,11 +18,11 @@
       border: 1px solid #e6e5e8;
       background-color: #fff;
       min-width: 70rem;
-    }
-  }
 
-  @include respond(phone) {
-    margin-top: 15rem;
+      @include respond(phone) {
+        min-width: 95vw;
+      }
+    }
   }
 
   &__form {

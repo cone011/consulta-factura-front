@@ -7,8 +7,11 @@ import {
   TableRow,
 } from "@mui/material";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import useWindowsDimension from "../../../hook/useWindowsDimension";
 
 const RechazadoLote = ({ facturas }) => {
+  const dimensions = useWindowsDimension();
+
   const RECHAZADO_HEAD = [
     {
       id: "cdc",
@@ -30,7 +33,9 @@ const RechazadoLote = ({ facturas }) => {
   return (
     <>
       {Array.isArray(facturas) && facturas.length > 0 && (
-        <TableContainer sx={{ width: "auto" }}>
+        <TableContainer
+          sx={{ width: dimensions.width <= 375 ? "80vw" : "100%" }}
+        >
           <Table
             sx={{ minWidth: 850, width: "100%" }}
             aria-labelledby="tableTitle"
@@ -59,13 +64,13 @@ const RechazadoLote = ({ facturas }) => {
                   tabIndex={-1}
                   sx={{ cursor: "pointer", overflow: "hidden" }}
                 >
-                  <TableCell width={300}>
+                  <TableCell>
                     <p className="grid-text">{factura.CDC}</p>
                   </TableCell>
                   <TableCell>
                     <p className="grid-text">{factura.codigoError}</p>
                   </TableCell>
-                  <TableCell width={400}>
+                  <TableCell>
                     <p className="grid-text">{factura.error}</p>
                   </TableCell>
                 </TableRow>

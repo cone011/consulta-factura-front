@@ -50,6 +50,10 @@ const ConsultaRucBase = () => {
               <h2 className="consultaRuc__title">
                 Buscador de ruc&nbsp;(LOCAL)
               </h2>
+              <h2 className="observation">
+                OBS: En esta consulta se puede ingresar el RUC, el nombre o
+                razon social persona
+              </h2>
             </div>
             <form onSubmit={onSearchRucHandler}>
               <div className="consultaRuc__form--container">
