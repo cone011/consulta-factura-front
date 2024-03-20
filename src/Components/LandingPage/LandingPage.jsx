@@ -17,7 +17,7 @@ const LandingPage = () => {
       <div className="landingPage_container">
         <Box>
           <div className="u-text-center">
-            <h1 className="heading-primary">Bienvenido al Integrador</h1>
+            <h1 className="heading-primary">Bienvenido a consultame</h1>
           </div>
         </Box>
         <div className="u-margin-top-small">

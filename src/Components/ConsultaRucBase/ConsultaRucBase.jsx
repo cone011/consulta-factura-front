@@ -52,7 +52,7 @@ const ConsultaRucBase = () => {
               </h2>
               <h2 className="observation">
                 OBS: En esta consulta se puede ingresar el RUC, el nombre o
-                razon social persona
+                razon social
               </h2>
             </div>
             <form onSubmit={onSearchRucHandler}>

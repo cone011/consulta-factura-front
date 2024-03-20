@@ -47,7 +47,7 @@ const Ruc = () => {
           <Box>
             <div className="u-text-center">
               <h2 className="ruc__title">Buscador de ruc&nbsp;(SIFEN)</h2>
-              <h3 className="paragraph">
+              <h3 className="observation">
                 Obs: Solo se ingresa el ruc sin el digito verificador
               </h3>
             </div>
