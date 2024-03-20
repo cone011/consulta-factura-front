@@ -49,6 +49,11 @@ const Header = () => {
               }}
             >
               <div className="side-bar">
+                <IconButton>
+                  <Link to="/" className="btn--link">
+                    <HomeIcon sx={{ fontSize: "3rem" }} color="info" />
+                  </Link>
+                </IconButton>
                 <IconButton onClick={toggleDrawerStatus}>
                   {!isDrawerOpened ? (
                     <ReorderIcon sx={{ fontSize: "3rem" }} color="info" />
