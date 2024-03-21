@@ -10,6 +10,7 @@ import {
   Box,
   AppBar,
   Toolbar,
+  Collapse,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import ReorderIcon from "@mui/icons-material/Reorder";
@@ -19,12 +20,22 @@ import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import AccountTreeIcon from "@mui/icons-material/AccountTree";
 import PersonIcon from "@mui/icons-material/Person";
 import IntegrationInstructionsIcon from "@mui/icons-material/IntegrationInstructions";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 
 const Header = () => {
   const [isDrawerOpened, setIsDrawerOpen] = useState(false);
+  const [showDetail, setShowDetail] = useState(false);
+
+  const handlerDetail = () => {
+    setShowDetail((prevState) => !prevState);
+  };
 
   const closeDrawer = () => {
     setIsDrawerOpen((prevState) => !prevState);
+
+    if (showDetail) setShowDetail(false);
   };
 
   const toggleDrawerStatus = () => {
@@ -103,69 +114,88 @@ const Header = () => {
                   </Link>
                 </ListItem>
 
-                <ListItem key="RucSifen">
+                <ListItem onClick={handlerDetail}>
                   <ListItemIcon>
-                    <AccountTreeIcon sx={{ fontSize: "2.4rem" }} />
+                    <FormatListBulletedIcon sx={{ fontSize: "2.4rem" }} />
                   </ListItemIcon>
-                  <Link
-                    to="/consulta/ruc"
-                    className="btn--link"
-                    onClick={closeDrawer}
-                  >
-                    <ListItemText
-                      primaryTypographyProps={{ fontSize: "2rem" }}
-                      primary="Ruc (SIFEN)"
-                    />
-                  </Link>
+                  <ListItemText
+                    primaryTypographyProps={{ fontSize: "2rem" }}
+                    primary="Consultas"
+                  />
+                  {showDetail ? <ExpandLessIcon /> : <ExpandMoreIcon />}
                 </ListItem>
 
-                <ListItem key="RucBase">
-                  <ListItemIcon>
-                    <AccountTreeIcon sx={{ fontSize: "2.4rem" }} />
-                  </ListItemIcon>
-                  <Link
-                    to="/consulta/ruc/base"
-                    className="btn--link"
-                    onClick={closeDrawer}
-                  >
-                    <ListItemText
-                      primaryTypographyProps={{ fontSize: "2rem" }}
-                      primary="Ruc (LOCAL)"
-                    />
-                  </Link>
-                </ListItem>
+                <Collapse in={showDetail} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                    <ListItem key="RucSifen">
+                      <ListItemIcon>
+                        <AccountTreeIcon sx={{ fontSize: "2.4rem" }} />
+                      </ListItemIcon>
+                      <Link
+                        to="/consulta/ruc"
+                        className="btn--link"
+                        onClick={closeDrawer}
+                      >
+                        <ListItemText
+                          primaryTypographyProps={{ fontSize: "2rem" }}
+                          primary="Ruc (SIFEN)"
+                        />
+                      </Link>
+                    </ListItem>
 
-                <ListItem key="Factura">
-                  <ListItemIcon>
-                    <StarIcon sx={{ fontSize: "2.4rem" }} />
-                  </ListItemIcon>
-                  <Link
-                    to="/consulta/factura"
-                    className="btn--link"
-                    onClick={closeDrawer}
-                  >
-                    <ListItemText
-                      primaryTypographyProps={{ fontSize: "2rem" }}
-                      primary="Factura"
-                    />
-                  </Link>
-                </ListItem>
+                    <ListItem key="RucBase">
+                      <ListItemIcon>
+                        <AccountTreeIcon sx={{ fontSize: "2.4rem" }} />
+                      </ListItemIcon>
+                      <Link
+                        to="/consulta/ruc/base"
+                        className="btn--link"
+                        onClick={closeDrawer}
+                      >
+                        <ListItemText
+                          primaryTypographyProps={{ fontSize: "2rem" }}
+                          primary="Ruc (LOCAL)"
+                        />
+                      </Link>
+                    </ListItem>
 
-                <ListItem key="Lote">
-                  <ListItemIcon>
-                    <StarIcon sx={{ fontSize: "2.4rem" }} />
-                  </ListItemIcon>
-                  <Link
-                    to="/consulta/lote"
-                    className="btn--link"
-                    onClick={closeDrawer}
-                  >
-                    <ListItemText
-                      primaryTypographyProps={{ fontSize: "2rem" }}
-                      primary="Lote"
-                    />
-                  </Link>
-                </ListItem>
+                    <ListItem key="Factura">
+                      <ListItemIcon>
+                        <StarIcon sx={{ fontSize: "2.4rem" }} />
+                      </ListItemIcon>
+                      <Link
+                        to="/consulta/factura"
+                        className="btn--link"
+                        onClick={closeDrawer}
+                      >
+                        <ListItemText
+                          primaryTypographyProps={{ fontSize: "2rem" }}
+                          primary="Factura"
+                        />
+                      </Link>
+                    </ListItem>
+
+                    <ListItem key="Lote">
+                      <ListItemIcon>
+                        <StarIcon sx={{ fontSize: "2.4rem" }} />
+                      </ListItemIcon>
+                      <Link
+                        to="/consulta/lote"
+                        className="btn--link"
+                        onClick={closeDrawer}
+                      >
+                        <ListItemText
+                          primaryTypographyProps={{ fontSize: "2rem" }}
+                          primary="Lote"
+                        />
+                      </Link>
+                    </ListItem>
+                  </List>
+                </Collapse>
+
+                <Divider textAlign="right">
+                  <span className="leyenda">PROGRAMADORES</span>
+                </Divider>
 
                 <ListItem key="api">
                   <ListItemIcon>
@@ -183,6 +213,8 @@ const Header = () => {
                     />
                   </a>
                 </ListItem>
+
+                <Divider />
 
                 <ListItem key="contacto">
                   <ListItemIcon>
