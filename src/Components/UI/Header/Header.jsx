@@ -18,6 +18,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import AccountTreeIcon from "@mui/icons-material/AccountTree";
 import PersonIcon from "@mui/icons-material/Person";
+import IntegrationInstructionsIcon from "@mui/icons-material/IntegrationInstructions";
 
 const Header = () => {
   const [isDrawerOpened, setIsDrawerOpen] = useState(false);
@@ -166,7 +167,24 @@ const Header = () => {
                   </Link>
                 </ListItem>
 
-                <ListItem key="Lote">
+                <ListItem key="api">
+                  <ListItemIcon>
+                    <IntegrationInstructionsIcon sx={{ fontSize: "2.4rem" }} />
+                  </ListItemIcon>
+                  <a
+                    target="_blank"
+                    href={import.meta.env.VITE_API}
+                    className="btn--link"
+                    onClick={closeDrawer}
+                  >
+                    <ListItemText
+                      primaryTypographyProps={{ fontSize: "2rem" }}
+                      primary="API"
+                    />
+                  </a>
+                </ListItem>
+
+                <ListItem key="contacto">
                   <ListItemIcon>
                     <PersonIcon sx={{ fontSize: "2.4rem" }} />
                   </ListItemIcon>
