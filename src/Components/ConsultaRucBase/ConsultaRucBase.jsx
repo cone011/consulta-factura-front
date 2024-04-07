@@ -48,7 +48,7 @@ const ConsultaRucBase = () => {
           <Box>
             <div className="u-text-center">
               <h2 className="consultaRuc__title">
-                Buscador de ruc&nbsp;(LOCAL)
+                Buscador de ruc&nbsp;(Por Nombre)
               </h2>
               <h2 className="observation">
                 OBS: En esta consulta se puede ingresar el RUC, el nombre o

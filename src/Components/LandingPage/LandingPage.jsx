@@ -38,10 +38,10 @@ const LandingPage = () => {
                 <h2 className="heading-secondary">Consultas disponibles</h2>
                 <div className="landingPage_container-btn">
                   <Link to="/consulta/ruc" className="btn paragraph">
-                    RUC&nbsp;(SIFEN)
+                    RUC&nbsp;(Por Numero)
                   </Link>
                   <Link to="/consulta/ruc/base" className="btn paragraph">
-                    RUC&nbsp;(LOCAL)
+                    RUC&nbsp;(Por Nombre)
                   </Link>
                   <Link to="/consulta/factura" className="btn paragraph">
                     FACTURA
